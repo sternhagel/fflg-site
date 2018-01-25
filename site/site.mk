@@ -26,6 +26,16 @@ GLUON_SITE_PACKAGES := \
 	haveged \
 	iwinfo
 
+
+# from ssidchanger-packages:
+GLUON_SITE_PACKAGES += \
+	gluon-ssid-changer
+
+# from sargon:
+GLUON_SITE_PACKAGES += \
+	roamguide
+
+
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
 #		gluon relies on
