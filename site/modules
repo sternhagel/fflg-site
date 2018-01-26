@@ -1,30 +1,16 @@
 # This file allows specifying additional repositories to use
 # when building gluon.
-#
-# In most cases, it is not required so don't add it.
 
-##	GLUON_SITE_FEEDS
-#		for each feed name given, add the corresponding PACKAGES_* lines
-#		documented below
-#GLUON_SITE_FEEDS='my_own_packages'
 GLUON_SITE_FEEDS='ssidchanger roamguide'
 
-##	PACKAGES_$feedname_REPO
-#		the  git repository from where to clone the package feed
-#PACKAGES_MY_OWN_PACKAGES_REPO=https://github.com/.../my-own-packages.git
+# the git repository from where to clone the package feed
 PACKAGES_SSIDCHANGER_REPO=https://github.com/freifunk-nord/gluon-ssid-changer.git
 PACKAGES_ROAMGUIDE_REPO=https://github.com/sargon/roamguide/
 
+# the version/commit of the git repository to clone
+PACKAGES_SSIDCHANGER_COMMIT=a555c5730ceaf4ba6f86123f9cbc34e4007be23f
+PACKAGES_ROAMGUIDE_COMMIT=859cf67417c14ae37e3e8201f438df315651adf9
 
-##	PACKAGES_$feedname_COMMIT
-#		the version/commit of the git repository to clone
-#PACKAGES_MY_OWN_PACKAGES_COMMIT=123456789aabcda1a69b04278e4d38f2a3f57e49
-PACKAGES_SSIDCHANGER_COMMIT=b62a36b1e04610f8602716d993f4bc7c29c528fe
-PACKAGES_ROAMGUIDE_COMMIT=491e2acb48e72ae4d0d22476efa51eb6c0c7970b
-
-##  PACKAGES_$feedname_BRANCH
-#   the branch to check out
-#PACKAGES_MY_OWN_PACKAGES_BRANCH=my_branch
-PACKAGES_SSIDCHANGER_BRANCH=lede
-PACKAGES_ROAMGUIDE_BRANCH=lede
-
+# the branch to check out
+PACKAGES_SSIDCHANGER_BRANCH=master
+PACKAGES_ROAMGUIDE_BRANCH=master

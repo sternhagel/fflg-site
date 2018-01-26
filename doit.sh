@@ -24,7 +24,7 @@ export GLUON_SITEDIR=$(pwd)/site
 
 if [ ! -d gluon ] ;
 then
-	git clone https://github.com/freifunk-gluon/gluon.git gluon -b v2017.1.4
+	git clone https://github.com/freifunk-gluon/gluon.git gluon -b v2016.2.x
 fi
 
 export GLUON_BRANCH=experimental
