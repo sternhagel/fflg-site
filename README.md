@@ -1,7 +1,7 @@
 ﻿
 # Dokumentation
 
-http://gluon.readthedocs.io/en/v2017.1.x/releases/v2017.1.4.html
+http://gluon.readthedocs.io/en/latest/releases/v2016.2.7.html
 
 Gluon Version, auf der die Freifunk Lüneburg Firmware basiert:
 
@@ -32,6 +32,6 @@ Gluon Version, auf der die Freifunk Lüneburg Firmware basiert:
    das Ergebnis ist in 
    /opt/firmware/fflg-site/gluon/output/images
 
-4.  Build Verzeichnis säubern
+4. Build Verzeichnis säubern
 
    rm -rf /opt/firmware/fflg-site/gluon
