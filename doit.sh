@@ -100,7 +100,7 @@ else
 		echo "  make manifest " 
 		echo "-----------------------------" 
 		make manifest
-		contrib/sign.sh ~/autoupdater/secret output/images/sysupgrade/$GLUAN_BRANCH.manifest
+		contrib/sign.sh ~/autoupdater/secret output/images/sysupgrade/$GLUON_BRANCH.manifest
 	fi
 fi
 
