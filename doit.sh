@@ -1,19 +1,5 @@
 #!/bin/bash
 
-echo 
-echo "intended use for experimental releases:"
-echo "./doit.sh"
-echo 
-echo "intended use for stable releases:"
-echo "./doit.sh <release number> delete 2>&1 >logfile"
-echo 
-echo "after changing gluon version or packages"
-echo "rm -rf gluon"
-echo "./doit.sh"
-echo 
-echo
-echo
-
 touch running
 date 
 echo "-----------------------------" 
@@ -24,14 +10,16 @@ export GLUON_SITEDIR=$(pwd)/site
 
 if [ ! -d gluon ] ;
 then
-	git clone https://github.com/freifunk-gluon/gluon.git gluon -b v2017.1.4
+	git clone https://github.com/freifunk-gluon/gluon.git gluon -b v2017.1.5
 fi
 
-export GLUON_BRANCH=experimental
 if [ $1"x" != "x" ] ;
 then
 	export GLUON_RELEASE=$1	
 	export GLUON_BRANCH=stable
+else
+        export GLUON_RELEASE=1.2pre-exp`date '+%Y%m%d%H%M'`
+	export GLUON_BRANCH=experimental
 fi
 
 echo "GLUON_RELEASE=" $GLUON_RELEASE  >>results_in_a_nutshell.log
@@ -51,57 +39,60 @@ then
 	make dirclean 
 fi
 
-echo "-----------------------------" 
-echo "make update GLUON_TARGET=ar71xx-generic" 
-echo "-----------------------------" 
-make update GLUON_TARGET=ar71xx-generic 
+ERRORFLAG=no
 
-echo "update done" >>../results_in_a_nutshell.log
+RASPBPI="brcm2708-bcm2708 brcm2708-bcm2709"
+X86="x86-64 x86-generic"
+WDR4900="mpc85xx-generic"
+ARM="ar71xx-generic ar71xx-tiny ar71xx-nand"
 
-if [ $2"x" == "deletex" ] ;
+TARGETS="$ARM $X86 $RASPBPI"
+
+for TARGET in $TARGETS; do
+
+   echo "-----------------------------" 
+   echo " make update GLUON_TARGET=$TARGET" 
+   echo "-----------------------------" 
+   make update GLUON_TARGET=$TARGET
+
+   echo "update done ($TARGET)" >>../results_in_a_nutshell.log
+
+   if [ $2"x" == "deletex" ] ;
+   then
+	echo "-----------------------------" 
+	echo " make clean  GLUON_TARGET=$TARGET"
+	echo "-----------------------------" 
+	make clean  GLUON_TARGET=$TARGET
+   fi
+
+   echo "-----------------------------" 
+   echo "make -j$(nproc) GLUON_TARGET=$TARGET" 
+   echo "-----------------------------" 
+   make -j$(nproc) GLUON_TARGET=$TARGET
+
+   if [ $? -ne 0 ] ;
+   then
+	ERRORFLAG=yes
+	echo "error during $TARGET producing " >>../results_in_a_nutshell.log
+
+	echo "-----------------------------" 
+	echo "make  -j1 V=s GLUON_TARGET=$TARGET" 
+	echo "-----------------------------" 
+	make  -j1 V=s GLUON_TARGET=$TARGET
+        break
+   else
+	echo "$TARGET produced without error " >>../results_in_a_nutshell.log
+   fi
+done
+
+if [ $ERRORFLAG == "no"  ] ;
 then
 	echo "-----------------------------" 
-	echo " make clean  GLUON_TARGET=ar71xx-generic" 
+	echo "  make manifest " 
 	echo "-----------------------------" 
-	make clean  GLUON_TARGET=ar71xx-generic 
-	echo "-----------------------------" 
-	echo " make clean  GLUON_TARGET=x86-generic" 
-	echo "-----------------------------" 
-	make clean  GLUON_TARGET=x86-generic 
-fi
-
-echo "-----------------------------" 
-echo "make -j$(nproc) GLUON_TARGET=ar71xx-generic" 
-echo "-----------------------------" 
-make -j$(nproc) GLUON_TARGET=ar71xx-generic  
-
-if [ $? -ne 0 ] ;
-then
-	echo "error during ar71xx-generic producing " >>../results_in_a_nutshell.log
-
-	echo "-----------------------------" 
-	echo "make  -j1 V=s GLUON_TARGET=ar71xx-generic" 
-	echo "-----------------------------" 
-	make  -j1 V=s GLUON_TARGET=ar71xx-generic  
-else
-	echo "ar71xx-generic produced without error " >>../results_in_a_nutshell.log
-
-	echo "-----------------------------" 
-	echo "make -j$(nproc) GLUON_TARGET=x86-generic" 
-	echo "-----------------------------" 
-	make -j$(nproc) GLUON_TARGET=x86-generic  
-	if [ $? -ne 0 ] ;
-	then
-		echo "error during x86-generic producing " >>../results_in_a_nutshell.log
-	else
-		echo "x86-generic produced without error " >>../results_in_a_nutshell.log
-
-		echo "-----------------------------" 
-		echo "  make manifest " 
-		echo "-----------------------------" 
-		make manifest
-		contrib/sign.sh ~/autoupdater/secret output/images/sysupgrade/$GLUAN_BRANCH.manifest
-	fi
+	make manifest
+	contrib/sign.sh ~/autoupdater/secret output/images/sysupgrade/$GLUON_BRANCH.manifest
+	echo "$GLUON_BRANCH.manifest written " >>../results_in_a_nutshell.log
 fi
 
 echo "-----------------------------" 
@@ -112,6 +103,13 @@ cd ..
 echo -n "finished :" >>results_in_a_nutshell.log
 date >>results_in_a_nutshell.log
 
-ls -lrt gluon/output/images/sysupgrade/
+if [ $ERRORFLAG == "no"  ] ;
+then
+	ls -lrt gluon/output/images/sysupgrade/
+	echo -n "no files:"
+	ls -lrt gluon/output/images/sysupgrade/ | wc -l 
+	touch -r gluon/output/images/*
+fi
+
 rm running 
 

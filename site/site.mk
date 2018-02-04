@@ -42,7 +42,7 @@ GLUON_SITE_PACKAGES += \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 1.1pre-exp$(shell date '+%Y%m%d%H%M')
+DEFAULT_GLUON_RELEASE := 1.2pre-exp$(shell date '+%Y%m%d%H%M')
 
 # Variables set with ?= can be overwritten from the command line
 
@@ -62,5 +62,7 @@ GLUON_PRIORITY ?= 0
 GLUON_REGION ?= eu
 
 # Languages to include
-GLUON_LANGS ?= en de
+GLUON_LANGS ?= de en fr 
+
+GLUON_ATH10K_MESH=11s
 

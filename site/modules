@@ -19,8 +19,9 @@ PACKAGES_ROAMGUIDE_REPO=https://github.com/sargon/roamguide/
 ##	PACKAGES_$feedname_COMMIT
 #		the version/commit of the git repository to clone
 #PACKAGES_MY_OWN_PACKAGES_COMMIT=123456789aabcda1a69b04278e4d38f2a3f57e49
-PACKAGES_SSIDCHANGER_COMMIT=b62a36b1e04610f8602716d993f4bc7c29c528fe
+PACKAGES_SSIDCHANGER_COMMIT=c6dc54f7d42f0871372df4dbbbe0dfffe7d56c51
 PACKAGES_ROAMGUIDE_COMMIT=491e2acb48e72ae4d0d22476efa51eb6c0c7970b
+
 
 ##  PACKAGES_$feedname_BRANCH
 #   the branch to check out
