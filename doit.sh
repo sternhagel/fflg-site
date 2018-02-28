@@ -18,7 +18,7 @@ then
 	export GLUON_RELEASE=$1	
 	export GLUON_BRANCH=stable
 else
-        export GLUON_RELEASE=1.2pre-exp`date '+%Y%m%d%H%M'`
+        export GLUON_RELEASE=1.3pre-exp`date '+%Y%m%d%H%M'`
 	export GLUON_BRANCH=experimental
 fi
 

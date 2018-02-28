@@ -12,14 +12,14 @@ GLUON_SITE_FEEDS='ssidchanger roamguide'
 ##	PACKAGES_$feedname_REPO
 #		the  git repository from where to clone the package feed
 #PACKAGES_MY_OWN_PACKAGES_REPO=https://github.com/.../my-own-packages.git
-PACKAGES_SSIDCHANGER_REPO=https://github.com/freifunk-nord/gluon-ssid-changer.git
+PACKAGES_SSIDCHANGER_REPO=https://github.com/tennet-ahertel/gluon-ssid-changer.git
 PACKAGES_ROAMGUIDE_REPO=https://github.com/sargon/roamguide/
 
 
 ##	PACKAGES_$feedname_COMMIT
 #		the version/commit of the git repository to clone
 #PACKAGES_MY_OWN_PACKAGES_COMMIT=123456789aabcda1a69b04278e4d38f2a3f57e49
-PACKAGES_SSIDCHANGER_COMMIT=c6dc54f7d42f0871372df4dbbbe0dfffe7d56c51
+PACKAGES_SSIDCHANGER_COMMIT=8c8116bf74578c138c77e6eb2e60303b805b1cae
 PACKAGES_ROAMGUIDE_COMMIT=491e2acb48e72ae4d0d22476efa51eb6c0c7970b
 
 
