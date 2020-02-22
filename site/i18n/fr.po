@@ -1,4 +1,4 @@
-﻿msgid ""
+msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -14,14 +14,22 @@ msgid "gluon-config-mode:welcome"
 msgstr ""
 "Bienvenue dans l'assistant de configuration pour votre nouveau nœud "
 "Freifunk. Remplissez le formulaire suivant en fonction de vos besoins "
-"et enregistrez le"
+"et enregistrez le."
+
+msgid "gluon-config-mode:domain"
+msgstr "Domaine"
+
+msgid "gluon-config-mode:domain-select"
+msgstr "Ici, vous avez la possibilité de sélectionner le domaine dans lequel "
+"se trouve votre nœud. N'oubliez pas que votre nœud ne peut se connecter "
+"qu'aux nœuds du domaine sélectionné."
 
 msgid "gluon-config-mode:pubkey"
 msgstr ""
-"<p>Ceci est la clé publique de votre nœud Freifunk. Seulment après que la clé soit "
-"entrée sur les serveurs de votre groupe de Freifunk votre nœud pourra se connecter "
-"sur les serveur Mesh-VPN de votre groupe Freifunk. Veuillez envoyer la clé avec le "
-"nom de votre nœud "
+"<p>Ceci est la clé publique de votre nœud Freifunk. Seulment après que la clé "
+"soit entrée sur les serveurs de votre groupe de Freifunk votre nœud pourra se "
+"connecter sur les serveur Mesh-VPN de votre groupe Freifunk. Veuillez envoyer "
+"la clé avec le nom de votre nœud "
 "(<em><%=pcdata(hostname)%></em>) à "
 "<a href=\"mailto:mitmachen@freifunk-lueneburg.de?subject=<%= urlencode('Enregistrement: ' .. hostname) %>&amp;"
 "body=<%= urlencode('# ' .. hostname .. '\n' .. pubkey) %>\">mitmachen@freifunk-lueneburg.de</a>."
@@ -35,19 +43,27 @@ msgstr ""
 msgid "gluon-config-mode:novpn"
 msgstr ""
 "<p>Vous avez choisi de <strong>ne pas utiliser</strong> "
-"le réseau VPN. Votre nœud ne pourra se connecter au réseau Freifunk que si "
-"d'autres nœuds à portée ont déjà une connexion.</p>"
+"le r�seau VPN. Votre n�ud ne pourra se connecter au r�seau Freifunk que si "
+"d'autres n�uds � port�e ont d�j� une connexion.</p>"
 
 msgid "gluon-config-mode:reboot"
 msgstr ""
-"<p>Votre nœud <em><%= pcdata(hostname) %></em> es en train de redémarrer et "
-"va ensuite éssayer de se connecter avec les autres nœuds du réseau Freifunk "
-"Vous pourrez trouver plus d'informations sur votre groupe Freifunk sur la page "
+"<p>Vous pourrez trouver plus d'informations sur votre groupe Freifunk sur la page "
 "<a href=\"https://freifunk-lueneburg.de/\"> de ton groupe </a>.</p> "
 "<p> Pour retrouver cette page de configuration veuillier appuyez pendant le "
-"fonctionement normal pendant 3 Secondes sur le bouton reset. L'appareil va ensuite "
-"redémarer en mode configuration.</p> "
+"fonctionement normal pendant 10 Secondes sur le bouton reset. L'appareil va ensuite "
+"redémarer en mode configuration.</p>"
 "<p>Profitez votre de nœud et amusez vous à découvrir le réseau Freifunk!</p>"
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-hostname/i18n/
+msgid "gluon-config-mode:hostname-help"
+msgstr ""
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-geo-location/i18n/
+msgid "gluon-config-mode:geo-location-help"
+msgstr ""
 
 msgid "gluon-config-mode:altitude-label"
 msgstr "Hauteur"
@@ -56,3 +72,21 @@ msgid "gluon-config-mode:altitude-help"
 msgstr ""
 "La altitude est optionelle et ne devrait que être ajoutée si la valeur "
 "exacte est connue."
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-hostname/i18n/
+msgid "gluon-config-mode:hostname-help"
+msgstr ""
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-geo-location/i18n/
+msgid "gluon-config-mode:geo-location-help"
+msgstr ""
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-contact-info/i18n/
+msgid "gluon-config-mode:contact-help"
+msgstr "Veuillez laisser une note ici pour permettre aux autres de vous contacter."
+
+msgid "gluon-config-mode:contact-note"
+msgstr ""
