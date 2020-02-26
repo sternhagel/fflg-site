@@ -1,0 +1,11 @@
+--- a/package/gluon-site/Makefile	2020-02-21 06:28:39.064922729 +0100
++++ b/package/gluon-site/Makefile	2020-02-25 16:51:44.443550279 +0100
+@@ -3,7 +3,7 @@ include $(TOPDIR)/rules.mk
+ PKG_NAME:=gluon-site
+ 
+ GLUON_SITEDIR = $(call qstrip,$(CONFIG_GLUON_SITEDIR))
+-GLUON_SITE_VERSION = $(shell ( cd '$(GLUON_SITEDIR)' && git --git-dir=.git describe --always --dirty=+ ) 2>/dev/null || echo unknown)
++GLUON_SITE_VERSION ?= $(shell ( cd '$(GLUON_SITEDIR)' && git --git-dir=.git describe --always --dirty=+ ) 2>/dev/null || echo unknown)
+ PKG_VERSION:=$(if $(DUMP),x,$(GLUON_SITE_VERSION))
+ 
+ PKG_CONFIG_DEPENDS := CONFIG_GLUON_RELEASE CONFIG_GLUON_SITEDIR CONFIG_GLUON_MULTIDOMAIN

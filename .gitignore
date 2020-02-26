@@ -1,0 +1,8 @@
+# Lines starting with `#` are comments.
+
+# zu ignorierende File, die sich aus der fflg-Produktion ergeben
+gluon/
+log.txt
+results_in_a_nutshell.log
+running
+
