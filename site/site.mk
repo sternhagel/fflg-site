@@ -12,11 +12,13 @@ GLUON_FEATURES := \
 	ebtables-limit-arp \
 	mesh-batman-adv-15 \
 	mesh-vpn-fastd \
-	radvd \
 	respondd \
 	status-page \
 	web-advanced \
+	web-network \
 	web-wizard
+
+#	config-mode-domain-select\
 
 ##	GLUON_MULTIDOMAIN
 #		Build gluon with multidomain support.
@@ -35,13 +37,17 @@ GLUON_SITE_PACKAGES := haveged iwinfo
 GLUON_SITE_PACKAGES += \
         gluon-ssid-changer
 
+# from sargon:
+GLUON_SITE_PACKAGES += \
+        roamguide
+
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
 #		gluon relies on
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 1.3pre-exp$(shell date '+%Y%m%d%H%M')
+DEFAULT_GLUON_RELEASE := 1.4.4pre-exp$(shell date '+%Y%m%d%H%M')
 
 # Variables set with ?= can be overwritten from the command line
 
@@ -66,3 +72,4 @@ GLUON_LANGS ?= de en fr
 GLUON_ATH10K_MESH=11s
 
 GLUON_DEPRECATED = full  
+#GLUON_DEPRECATED = 0   

@@ -1,11 +1,11 @@
 ﻿
 # Dokumentation
 
-http://gluon.readthedocs.io/en/v2017.1.x/releases/v2017.1.4.html
+https://gluon.readthedocs.io/en/v2020.1.x/releases/v2020.1.html
 
 Gluon Version, auf der die Freifunk Lüneburg Firmware basiert:
 
-* 2016.2.7 - Gluon 2016.2.7
+* v2020.1 
 
 # Download der Firmware
 

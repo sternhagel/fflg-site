@@ -11,7 +11,7 @@ export GLUON_SITE_VERSION=`git --git-dir=.git describe --always --dirty=+ `
 
 if [ ! -d gluon ] ;
 then
-	git clone https://github.com/freifunk-gluon/gluon.git gluon -b v2019.1.2
+	git clone https://github.com/freifunk-gluon/gluon.git gluon -b v2020.1
 fi
 cd gluon
 for f in  ../site/patch/*
@@ -24,7 +24,7 @@ then
 	export GLUON_RELEASE=$1	
 	export GLUON_BRANCH=stable
 else
-        export GLUON_RELEASE=1.4.3pre-exp`date '+%Y%m%d%H%M'`
+        export GLUON_RELEASE=1.4.4pre-exp`date '+%Y%m%d%H%M'`
 	export GLUON_BRANCH=experimental
 fi
 
@@ -50,11 +50,12 @@ ERRORFLAG=no
 RASPBPI="brcm2708-bcm2708 brcm2708-bcm2709 sunxi-cortexa7"
 X86="x86-64 x86-generic"
 WDR4900="mpc85xx-generic"
-ARM="ar71xx-tiny ar71xx-generic ar71xx-nand"
-AVM="ipq40xx"
+ARM="ar71xx-generic ar71xx-tiny ar71xx-nand"
+ATH="ath79-generic"
+AVM="ipq40xx-generic"
 TPNG="ramips-mt76x8 mpc85xx-generic"
 
-TARGETS="$ARM $X86 $RASPBPI $ATH $AVM $TPNG"
+TARGETS="$ARM $TPNP $ATH $RASPBPI $AVM $X86"
 
 for TARGET in $TARGETS; do
 
@@ -84,9 +85,9 @@ for TARGET in $TARGETS; do
 	echo "error during $TARGET producing " >>../results_in_a_nutshell.log
 
 	echo "-----------------------------" 
-	echo "make  -j1 V=s GLUON_TARGET=$TARGET" 
+	echo "make  -j1 V=sc GLUON_TARGET=$TARGET" 
 	echo "-----------------------------" 
-	make  -j1 V=s GLUON_TARGET=$TARGET
+	make  -j1 V=sc GLUON_TARGET=$TARGET
         break
    else
 	echo "$TARGET produced without error " >>../results_in_a_nutshell.log

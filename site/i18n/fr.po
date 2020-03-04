@@ -42,9 +42,11 @@ msgstr ""
 
 msgid "gluon-config-mode:novpn"
 msgstr ""
-"<p>Vous avez choisi de <strong>ne pas utiliser</strong> "
-"le rÈseau VPN. Votre núud ne pourra se connecter au rÈseau Freifunk que si "
-"d'autres núuds ‡ portÈe ont dÈj‡ une connexion.</p>"
+"<p> Vous avez choisi <strong> aucun VPN maill√© </strong>"
+"√† utiliser. Ainsi, votre n≈ìud ne peut se connecter qu'au r√©seau radio gratuit"
+"mis en place lorsque d'autres routeurs Freifunk sont √† port√©e WLAN."
+"</p>"
+
 
 msgid "gluon-config-mode:reboot"
 msgstr ""
@@ -59,6 +61,11 @@ msgstr ""
 # package/gluon-config-mode-hostname/i18n/
 msgid "gluon-config-mode:hostname-help"
 msgstr ""
+"Le nom du n≈ìud est utilis√© pour identifier votre n≈ìud, par exemple "
+"sur une carte de noeud. En fonctionnement normal, il n'a aucune influence sur le nom (SSID) "
+"du WLAN diffus√©. En cas de panne, cependant, si l'appareil ne peut pas √©tablir de connexion "
+"avec le r√©seau radio, le nom est cependant utilis√© dans le SSID afin de mieux encercler "
+"la panne. "
 
 # Leave empty to use the default text, which can be found in:
 # package/gluon-config-mode-geo-location/i18n/
@@ -90,3 +97,4 @@ msgstr "Veuillez laisser une note ici pour permettre aux autres de vous contacte
 
 msgid "gluon-config-mode:contact-note"
 msgstr ""
+
