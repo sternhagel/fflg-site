@@ -6,3 +6,5 @@ log.txt
 results_in_a_nutshell.log
 running
 
+# ignore IDE configs
+.idea/
