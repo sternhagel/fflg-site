@@ -1,5 +1,0 @@
---- a/packages/ssidchanger/gluon-ssid-changer/luasrc/lib/gluon/config-mode/controller/admin/ssid-changer.lua	2020-03-02 20:31:45.178307427 +0100
-+++ b/packages/ssidchanger/gluon-ssid-changer/luasrc/lib/gluon/config-mode/controller/admin/ssid-changer.lua	2020-03-02 20:29:19.848230597 +0100
-@@ -1 +1 @@
--entry({"admin", "ssid-changer"}, model("admin/ssid-changer"), _("Offline-SSID"), 35)
-+entry({"admin", "ssid-changer"}, model("admin/ssid-changer"), _("Offline-SSID"), 35).hidden= true 
