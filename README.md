@@ -1,11 +1,10 @@
-﻿
-# Dokumentation
+﻿# Dokumentation
 
-https://gluon.readthedocs.io/en/v2020.1.x/releases/v2020.1.html
+https://gluon.readthedocs.io/en/v2021.1.x/releases/v2021.1.1.html
 
 Gluon Version, auf der die Freifunk Lüneburg Firmware basiert:
 
-* v2020.1 
+* v2021.1.1 
 
 # Download der Firmware
 
@@ -22,7 +21,6 @@ Gluon Version, auf der die Freifunk Lüneburg Firmware basiert:
    mkdir /opt/firmware/ 
    cd /opt/firmware/
    git clone https://github.com/FreifunkLueneburg/fflg-site.git
-
 
 3. Firmware bauen
 

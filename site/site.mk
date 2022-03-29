@@ -47,7 +47,7 @@ GLUON_SITE_PACKAGES += \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 1.4.4pre-exp$(shell date '+%Y%m%d%H%M')
+DEFAULT_GLUON_RELEASE := 1.4.5pre-exp$(shell date '+%Y%m%d%H%M')
 
 # Variables set with ?= can be overwritten from the command line
 
@@ -71,5 +71,5 @@ GLUON_LANGS ?= de en fr
 
 GLUON_ATH10K_MESH=11s
 
-GLUON_DEPRECATED = full  
-#GLUON_DEPRECATED = 0   
+# build images for deprecated devices
+GLUON_DEPRECATED = full
